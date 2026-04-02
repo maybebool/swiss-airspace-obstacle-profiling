@@ -1,0 +1,27 @@
+# Data (reproduced by fetch script)
+data/raw/
+data/processed/
+
+# Data file formats
+*.parquet
+*.kmz
+*.kml
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+
+# PyCharm / JetBrains
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Virtual environment
+venv/
+.venv/
+
+# OS
+.DS_Store
+Thumbs.db
