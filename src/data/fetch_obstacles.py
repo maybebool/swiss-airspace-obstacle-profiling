@@ -12,9 +12,9 @@ Data source:
     - Attribution: © Federal Office of Civil Aviation BAZL, opendata.swiss
 
 Output:
-    - data/raw/luftfahrthindernis_4326.kmz       (original KMZ download)
-    - data/raw/luftfahrthindernis_klein.csv       (smaller obstacles CSV)
-    - data/processed/obstacles.parquet            (cleaned, merged GeoDataFrame)
+    - data/raw/luftfahrthindernis_4326.kmz (original KMZ download)
+    - data/raw/luftfahrthindernis_klein.csv (smaller obstacles CSV)
+    - data/processed/obstacles.parquet (cleaned, merged GeoDataFrame)
 
 Usage:
     python src/data/fetch_obstacles.py
@@ -36,10 +36,8 @@ import pandas as pd
 import requests
 from shapely.geometry import Point
 
-# ---------------------------------------------------------------------------
-# Configuration
-# ---------------------------------------------------------------------------
 
+# Configuration
 PROJECT_ROOT = Path(__file__).resolve().parents[2]  # assumes src/data/fetch_obstacles.py
 RAW_DIR = PROJECT_ROOT / "data" / "raw"
 PROCESSED_DIR = PROJECT_ROOT / "data" / "processed"
@@ -66,10 +64,8 @@ logging.basicConfig(
 log = logging.getLogger(__name__)
 
 
-# ---------------------------------------------------------------------------
-# Download helpers
-# ---------------------------------------------------------------------------
 
+# Download helpers
 
 def ensure_dirs():
     """Create output directories if they don't exist."""
@@ -97,10 +93,8 @@ def download_file(url: str, dest: Path, description: str = "") -> Path:
     return dest
 
 
-# ---------------------------------------------------------------------------
-# 1. Download main obstacles (KMZ)
-# ---------------------------------------------------------------------------
 
+# 1. Download main obstacles (KMZ)
 
 def fetch_kmz_url_from_stac() -> str:
     """Query STAC API to find the KMZ asset download URL."""
@@ -147,10 +141,8 @@ def download_main_obstacles() -> Path:
     return download_file(kmz_url, dest, "main obstacles KMZ")
 
 
-# ---------------------------------------------------------------------------
-# 2. Download small airport obstacles (CSV)
-# ---------------------------------------------------------------------------
 
+# 2. Download small airport obstacles (CSV)
 
 def fetch_small_obstacles_csv_url() -> str:
     """Query STAC API for the small obstacles CSV download URL."""
@@ -190,10 +182,7 @@ def download_small_obstacles() -> Path | None:
     return download_file(csv_url, dest, "small airport obstacles CSV")
 
 
-# ---------------------------------------------------------------------------
 # 3. Parse KMZ → GeoDataFrame
-# ---------------------------------------------------------------------------
-
 
 def extract_kml_from_kmz(kmz_path: Path) -> bytes:
     """Unzip KMZ and return the KML content as bytes."""
@@ -302,10 +291,7 @@ def parse_kml_to_dataframe(kml_bytes: bytes) -> gpd.GeoDataFrame:
     return gdf
 
 
-# ---------------------------------------------------------------------------
 # 4. Clean and merge
-# ---------------------------------------------------------------------------
-
 
 def clean_main_obstacles(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
     """Basic cleaning of the main obstacle GeoDataFrame."""
@@ -331,7 +317,7 @@ def clean_main_obstacles(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
 
     return gdf
 
-
+# TODO: gives back 404. Looks like source structure has changed, or no longer public(?)
 def load_small_obstacles(csv_path: Path | None) -> gpd.GeoDataFrame | None:
     """Load and convert the small airport obstacles CSV to a GeoDataFrame."""
     if csv_path is None or not csv_path.exists():
@@ -360,10 +346,7 @@ def load_small_obstacles(csv_path: Path | None) -> gpd.GeoDataFrame | None:
     return gdf
 
 
-# ---------------------------------------------------------------------------
 # 5. Main pipeline
-# ---------------------------------------------------------------------------
-
 
 def main():
     log.info("=" * 60)
