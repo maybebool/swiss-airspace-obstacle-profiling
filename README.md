@@ -11,10 +11,15 @@ Spatial clustering of 14,334 registered air navigation obstacles across Switzerl
 
 <p align="center">
   <img src="reports/figures/risk_zone_map_preview.png" alt="Swiss Airspace Risk Zone Map" width="100%">
-  <br>
-  <em>Interactive hexagonal risk zone map of Switzerland. Green = clear airspace, Blue = transmission corridors, 
-  Orange = alpine infrastructure, Violet = urban/industrial, Red = airport zones.</em>
 </p>
+
+| Color | Zone | Meaning |
+|:---:|:---|:---|
+| 🟢 | Clear Airspace | No registered obstacles |
+| 🔵 | Plateau Transmission | Low-density linear infrastructure (power lines, poles) |
+| 🟠 | Alpine High-Rise | Cable cars, valley crossings, high-elevation towers |
+| 🟣 | Urban Vertical | Buildings, industrial stacks, cranes |
+| 🔴 | Airport & Urban | High obstacle density near airfields |
 
 ## Objective
 
