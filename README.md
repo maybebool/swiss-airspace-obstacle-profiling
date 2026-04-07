@@ -1,8 +1,20 @@
 # Swiss Airspace Obstacle Profiling
 
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+![Data](https://img.shields.io/badge/Data-opendata.swiss-red?style=flat-square)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-1.3+-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)
+![Folium](https://img.shields.io/badge/Folium-Interactive_Maps-77B829?style=flat-square)
+![H3](https://img.shields.io/badge/H3-Hexagonal_Grid-4285F4?style=flat-square)
+
 Spatial clustering of 14,334 registered air navigation obstacles across Switzerland to identify operationally distinct airspace risk zones for low-altitude UAS corridor planning.
 
-![Risk Zone Map](reports/figures/risk_zone_map_preview.png)
+<p align="center">
+  <img src="reports/figures/risk_zone_map_preview.png" alt="Swiss Airspace Risk Zone Map" width="100%">
+  <br>
+  <em>Interactive hexagonal risk zone map of Switzerland. Green = clear airspace, Blue = transmission corridors, 
+  Orange = alpine infrastructure, Violet = urban/industrial, Red = airport zones.</em>
+</p>
 
 ## Objective
 
@@ -15,7 +27,7 @@ Segment the Swiss airspace into risk zones based on obstacle characteristics (ty
 | [Swiss Air Navigation Obstacle Data](https://opendata.swiss/en/dataset/luftfahrthindernisdaten-schweiz) | BAZL | KMZ via STAC API | Open use, attribution required |
 | [swissBOUNDARIES3D](https://opendata.swiss/en/dataset/swissboundaries3d-landesgrenzen) | swisstopo | GeoJSON via REST API | Open use, attribution required |
 
-Attribution: © Bundesamt für Zivilluftfahrt BAZL · © swisstopo · opendata.swiss
+> Attribution: © Bundesamt für Zivilluftfahrt BAZL · © swisstopo · opendata.swiss
 
 ## Methodology
 
@@ -38,13 +50,26 @@ Attribution: © Bundesamt für Zivilluftfahrt BAZL · © swisstopo · opendata.s
 | Alpine High-Rise | 602 | 15.1% | 4.7 | 107m | 1,481m | Extreme heights, cable cars, valley crossings |
 | Urban Vertical | 284 | 7.1% | 3.2 | 51m | 651m | 82% buildings/industry, 45% lighted |
 
+## Cantonal Zoom: Zürich
+
+The grid resolution can be adjusted without architectural changes. Below is Canton Zürich at resolution 9 (~0.1 km²), demonstrating the scalability from strategic overview to operational planning granularity.
+
+<p align="center">
+  <img src="reports/figures/detailed_zh_risk_map.png" alt="Zürich Cantonal Zoom" width="100%">
+  <br>
+  <em>Canton Zürich at H3 resolution 9. The higher resolution reveals individual obstacle clusters 
+  around Zürich Airport (LSZH), urban centres, and transmission line corridors.</em>
+</p>
+
 ## Interactive Maps
 
-The `reports/figures/` directory contains interactive HTML maps (open in any browser):
+The `reports/figures/` directory contains interactive HTML maps (download and open in any browser):
 
-- **risk_zone_map.html**: Full Switzerland with hexagonal risk zones and clear airspace overlay
-- **zurich_zoom_map.html**: Canton Zürich at resolution 9 demonstrating scalability
-- **cluster_map.html**: Cluster assignments with popup details per cell
+| Map | Description |
+|:---|:---|
+| **risk_zone_map.html** | Full Switzerland with hexagonal risk zones and clear airspace overlay |
+| **zurich_zoom_map.html** | Canton Zürich at resolution 9 demonstrating scalability |
+| **cluster_map.html** | Cluster assignments with popup details per cell |
 
 ## Project Structure
 
@@ -80,14 +105,20 @@ python src/data/fetch_obstacles.py
 
 Then run the notebooks in order (01 → 05). Each notebook reads its input from `data/processed/` and writes its output there. The fetch script must be run once to populate `data/raw/`.
 
-**Requirements:** Python 3.10+, see `requirements.txt` for full dependency list.
-
 ## Tech Stack
 
-- **Data acquisition:** requests, fastkml, lxml (KMZ/KML parsing via STAC API)
-- **Geospatial:** geopandas, h3, pyproj, shapely, folium
-- **Analysis:** pandas, numpy, scikit-learn, hdbscan, scipy
-- **Visualisation:** matplotlib, seaborn, folium (interactive maps)
+![pandas](https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-3776AB?style=flat-square)
+![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white)
+
+| Category | Libraries |
+|:---|:---|
+| Data acquisition | requests, fastkml, lxml (KMZ/KML parsing via STAC API) |
+| Geospatial | geopandas, h3, pyproj, shapely, folium |
+| Analysis | pandas, numpy, scikit-learn, hdbscan, scipy |
+| Visualisation | matplotlib, seaborn, folium (interactive maps) |
 
 ## Limitations & Future Work
 
