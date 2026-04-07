@@ -82,11 +82,11 @@ swiss-airspace-obstacle-profiling/
 │   └── data/
 │       └── fetch_obstacles.py          # STAC API download & KMZ parsing
 ├── notebooks/
-│   ├── 01_data_ingestion.ipynb         # Quality assessment & cleaning
-│   ├── 02_feature_engineering.ipynb    # H3 grid aggregation & features
-│   ├── 03_clustering.ipynb             # K-Means, HDBSCAN, DBSCAN comparison
-│   ├── 04_dim_reduction_viz.ipynb      # PCA, t-SNE, geographic overlays
-│   └── 05_corridor_profiling.ipynb     # Risk zones, cantonal zoom, final maps
+│   ├── data_ingestion_and_quality_assessment.ipynb  # Quality assessment & cleaning
+│   ├── feature_engineering.ipynb                    # H3 grid aggregation & features
+│   ├── cluster_evaluation.ipynb                     # K-Means, HDBSCAN, DBSCAN comparison
+│   ├── dim_reduction_and_visualization.ipynb        # PCA, t-SNE, geographic overlays
+│   └── corridor_profiling.ipynb                     # Risk zones, cantonal zoom, final maps
 ├── data/
 │   ├── raw/                            # Original downloads (.gitignored)
 │   └── processed/                      # Parquet files (.gitignored)
