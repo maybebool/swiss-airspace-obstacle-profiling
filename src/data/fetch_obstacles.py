@@ -1,6 +1,6 @@
 """
 fetch_obstacles.py
-==================
+
 Downloads and parses Swiss air navigation obstacle data from the Federal Office
 of Civil Aviation (BAZL) via the geo.admin.ch STAC API.
 
@@ -94,7 +94,7 @@ def download_file(url: str, dest: Path, description: str = "") -> Path:
 
 
 
-# 1. Download main obstacles (KMZ)
+# Download main obstacles (KMZ)
 
 def fetch_kmz_url_from_stac() -> str:
     """Query STAC API to find the KMZ asset download URL."""
@@ -142,7 +142,7 @@ def download_main_obstacles() -> Path:
 
 
 
-# 2. Download small airport obstacles (CSV)
+# Download small airport obstacles (CSV)
 
 def fetch_small_obstacles_csv_url() -> str:
     """Query STAC API for the small obstacles CSV download URL."""
@@ -176,13 +176,13 @@ def download_small_obstacles() -> Path | None:
 
     csv_url = fetch_small_obstacles_csv_url()
     if not csv_url:
-        log.warning("Small obstacles CSV URL not found — skipping (non-critical).")
+        log.warning("Small obstacles CSV URL not found - skipping (non-critical).")
         return None
 
     return download_file(csv_url, dest, "small airport obstacles CSV")
 
 
-# 3. Parse KMZ → GeoDataFrame
+# Parse KMZ → GeoDataFrame
 
 def extract_kml_from_kmz(kmz_path: Path) -> bytes:
     """Unzip KMZ and return the KML content as bytes."""
@@ -291,7 +291,7 @@ def parse_kml_to_dataframe(kml_bytes: bytes) -> gpd.GeoDataFrame:
     return gdf
 
 
-# 4. Clean and merge
+# Clean and merge
 
 def clean_main_obstacles(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
     """Basic cleaning of the main obstacle GeoDataFrame."""
@@ -346,7 +346,7 @@ def load_small_obstacles(csv_path: Path | None) -> gpd.GeoDataFrame | None:
     return gdf
 
 
-# 5. Main pipeline
+# Main pipeline
 
 def main():
     log.info("=" * 60)
@@ -355,16 +355,16 @@ def main():
 
     ensure_dirs()
 
-    # Step 1: Download
+    # Download
     kmz_path = download_main_obstacles()
     small_csv_path = download_small_obstacles()
 
-    # Step 2: Parse KMZ
+    # Parse KMZ
     kml_bytes = extract_kml_from_kmz(kmz_path)
     gdf_main = parse_kml_to_dataframe(kml_bytes)
     gdf_main = clean_main_obstacles(gdf_main)
 
-    # Step 3: Load small obstacles
+    # Load small obstacles
     gdf_small = load_small_obstacles(small_csv_path)
 
     # Step 4: Merge if both available
