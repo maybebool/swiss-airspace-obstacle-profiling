@@ -1,11 +1,11 @@
 # Swiss Airspace Obstacle Profiling
 
-![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
-![Data](https://img.shields.io/badge/Data-opendata.swiss-red?style=flat-square)
-![scikit-learn](https://img.shields.io/badge/scikit--learn-1.3+-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)
-![Folium](https://img.shields.io/badge/Folium-Interactive_Maps-77B829?style=flat-square)
-![H3](https://img.shields.io/badge/H3-Hexagonal_Grid-4285F4?style=flat-square)
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
+[![Data](https://img.shields.io/badge/Data-opendata.swiss-red?style=flat-square)](https://opendata.swiss/en/dataset/luftfahrthindernisdaten-schweiz)
+[![scikit-learn](https://img.shields.io/badge/scikit--learn-1.3+-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![Folium](https://img.shields.io/badge/Folium-Interactive_Maps-77B829?style=flat-square)](https://python-visualization.github.io/folium/)
+[![H3](https://img.shields.io/badge/H3-Hexagonal_Grid-4285F4?style=flat-square)](https://h3geo.org/)
 
 Spatial clustering of 14,334 registered air navigation obstacles across Switzerland to identify operationally distinct airspace risk zones for low-altitude UAS corridor planning.
 
@@ -107,11 +107,11 @@ Then run the notebooks in order (01 → 05). Each notebook reads its input from 
 
 ## Tech Stack
 
-![pandas](https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white)
-![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white)
-![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)
-![Matplotlib](https://img.shields.io/badge/Matplotlib-3776AB?style=flat-square)
-![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white)
+[![pandas](https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+[![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white)](https://numpy.org/)
+[![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![Matplotlib](https://img.shields.io/badge/Matplotlib-3776AB?style=flat-square)](https://matplotlib.org/)
+[![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white)](https://jupyter.org/)
 
 | Category | Libraries |
 |:---|:---|
