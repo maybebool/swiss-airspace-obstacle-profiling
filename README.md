@@ -13,6 +13,8 @@ Spatial clustering of 14,334 registered air navigation obstacles across Switzerl
   <img src="reports/figures/risk_zone_map_preview.png" alt="Swiss Airspace Risk Zone Map" width="100%">
 </p>
 
+[Interactive Map](https://maybebool.github.io/swiss-airspace-obstacle-profiling/risk_zone_map.html)
+
 | Color | Zone | Meaning |
 |:---:|:---|:---|
 | 🟢 | Clear Airspace | No registered obstacles |
@@ -66,6 +68,7 @@ The grid resolution can be adjusted without architectural changes. Below is Cant
   around Zürich Airport (LSZH), urban centres, and transmission line corridors.</em>
 </p>
 
+[Interactive Map](https://maybebool.github.io/swiss-airspace-obstacle-profiling/zurich_zoom_map.html) 
 ## Interactive Maps
 
 The `reports/figures/` directory contains interactive HTML maps (download and open in any browser):
