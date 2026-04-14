@@ -1,7 +1,6 @@
 # Swiss Airspace Obstacle Profiling
 
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
-[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 [![Data](https://img.shields.io/badge/Data-opendata.swiss-red?style=flat-square)](https://opendata.swiss/en/dataset/luftfahrthindernisdaten-schweiz)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-1.3+-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
 [![Folium](https://img.shields.io/badge/Folium-Interactive_Maps-77B829?style=flat-square)](https://python-visualization.github.io/folium/)
