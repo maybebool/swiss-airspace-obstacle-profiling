@@ -1,7 +1,9 @@
 # Swiss Airspace Obstacle Profiling
+
 <p align="center">
   <img src="docs/Logo.png" alt="Logo" width="200">
 </p>
+
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
 [![Data](https://img.shields.io/badge/Data-opendata.swiss-red?style=flat-square)](https://opendata.swiss/en/dataset/luftfahrthindernisdaten-schweiz)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-1.3+-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
